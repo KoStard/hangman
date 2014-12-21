@@ -1,0 +1,5 @@
+[package]
+
+name = "hangman"
+version = "0.0.1"
+authors = ["Mauricio de Abreu Antunes <mauricio.abreua@gmail.com>"]
