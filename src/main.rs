@@ -51,9 +51,9 @@ fn get_letter_indexes(letter: char, secret_word: &str) -> Vec<(uint, char)> {
 }
 
 fn replace_letters(indexes: Vec<(uint, char)>, secret_word: &mut String) {
-    for idx in indexes.iter() {
-        secret_word.insert(idx.0, idx.1);
-        secret_word.remove(idx.0 + 1);
+    for &(idx, letter) in indexes.iter() {
+        secret_word.remove(idx);
+        secret_word.insert(idx, letter);
     }
 }
 
