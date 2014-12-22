@@ -25,6 +25,7 @@ fn main() {
         } else {
             let indexes = get_letter_indexes(input, secret_word);
             if indexes.is_empty() {
+                count += 1u;
                 println!("NAH NAH! Letter not found.");
             } else {
                 println!("Letter was found.");
@@ -32,7 +33,6 @@ fn main() {
             }
             println!("{}", guessing_word);
             if count == total_miss { break; }
-            count += 1u;
             guessed_letters.push(input);
         }
         if guessing_word.as_slice() == secret_word { println!("You win!"); return; }
