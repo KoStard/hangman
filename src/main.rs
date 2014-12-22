@@ -1,5 +1,3 @@
-#![feature(tuple_indexing)]
-
 use std::io;
 
 #[cfg(not(test))]
