@@ -17,11 +17,12 @@ fn main() {
     
     loop {
         println!("Type your guess!");
-        let input = io::stdin().read_char().ok().expect("Failed to read line");
-        if guessed_letters.contains(&input) {
+        let input = io::stdin().read_line().ok().expect("Failed to read line");
+        let input_char: char = input.char_at(0);
+        if guessed_letters.contains(&input_char) {
             println!("You already guessed it.");
         } else {
-            let indexes = get_letter_indexes(input, secret_word);
+            let indexes = get_letter_indexes(input_char, secret_word);
             if indexes.is_empty() {
                 count += 1u;
                 println!("NAH NAH! Letter not found.");
@@ -31,7 +32,7 @@ fn main() {
             }
             println!("{}", guessing_word);
             if count == total_miss { break; }
-            guessed_letters.push(input);
+            guessed_letters.push(input_char);
         }
         if guessing_word.as_slice() == secret_word { println!("You win!"); return; }
     }
